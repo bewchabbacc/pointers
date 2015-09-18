@@ -8,12 +8,18 @@ HELPSRC = #helpers.cpp
 HELPOBJ  = #$(HELPSRC:.cpp=.o)
 CXXFLAGS += -std=c++03 -Wall -pedantic-errors
 RM = rm -f
+NAME = test
 
-all: test1
+all: $(NAME)1 $(NAME)2
 
-test1: $(HELPOBJ) test1.o
+$(NAME)1: $(HELPOBJ) $(NAME)1.o
 	$(CXX) $(CXXFLAGS) $^ -o $@.out
-	@echo "#####  TEST 1  #########"
+	@echo "#####  $@  #########"
+	@./$@.out
+
+$(NAME)2: $(HELPOBJ) $(NAME)2.o
+	$(CXX) $(CXXFLAGS) $^ -o $@.out
+	@echo "#####  $@  #########"
 	@./$@.out
 
 clean:
@@ -23,4 +29,7 @@ clean:
 	-$(RM) *.swp
 	-$(RM) *.core
 
-re: clean all
+fclean:
+	-$(RM) *.out
+
+re: fclean all
