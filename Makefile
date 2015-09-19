@@ -37,7 +37,7 @@ clean:
 	-$(RM) *.swp
 	-$(RM) *.core
 
-fclean:
+fclean: clean
 	-$(RM) *.out
 
 re: fclean all
