@@ -3,19 +3,24 @@
 
 class Base
 {
+private:
+  static unsigned int baseCount;
 protected:
   vector<string> data;
 public:
   ~Base()
   {
+    --baseCount;
     cout << "Base Destructor! EXTERMINATE!!" << endl;
   }
   Base()
   {
+    ++baseCount;
     cout << "Base Constructor!" << endl;
   }
   Base(unsigned int n)
   {
+    ++baseCount;
     cout << "Base non-default constructor!" << endl;
     data.reserve(n);
   }
@@ -29,25 +34,28 @@ public:
       {
 	cout << *it << " ";
       }
-    cout << endl;
-    cout << "This Base object is at location: " << this << " and data is at " << &data << endl;
+    cout << "\nThis Base object is at location: " << this << endl;
   }
 };
 
 class Child: public Base
 {
 private:
+  static unsigned int childCount;
   unsigned int count;
 public:
   ~Child() {
+    --childCount;
     cout << "Child destructor!" << endl;
   }
   Child() {
+    ++childCount;
     count = 0;
     cout << "Child default constructor!" << endl;
   }
   Child(unsigned int n): Base(n)
   {
+    ++childCount;
     count = n;
     cout << "Child non-default constructor!" << endl;
   }
@@ -55,9 +63,13 @@ public:
   {
     cout << "There are " << count << " items: ";
     Base::print_data();
-    cout << "This Child object is at location: " << this << " and count is at " << &count << endl;
+    cout << "This Child object is at location: " << this << endl;
   }
 };
+
+unsigned int Base::baseCount = 0;
+unsigned int Child::childCount = 0;
+
 
 int main(int argc, char **argv)
 {
