@@ -31,6 +31,12 @@ int main()
   int *pi2 = NULL; // Dereferencing this will seg-fault!
   int *pi3; // THIS IS A BAD IDEA!
 
+#ifdef CRASHME
+  int *pi4 = (int*)5; // THIS IS EVEN WORSE!!!
+
+  *pi4 = 10; // Congrats! you just got a segfault! I hope you're proud
+#endif
+
   cout << "i->";
   print_info(i);
   cout << "pi->";

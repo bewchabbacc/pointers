@@ -10,7 +10,7 @@ CXXFLAGS += -std=c++03 -Wall -pedantic-errors
 RM = rm -f
 NAME = test
 
-all: $(NAME)1 $(NAME)2
+all: $(NAME)1 $(NAME)2 $(NAME)3 $(NAME)4
 
 $(NAME)1: $(HELPOBJ) $(NAME)1.o
 	$(CXX) $(CXXFLAGS) $^ -o $@.out
@@ -25,6 +25,12 @@ $(NAME)2: $(HELPOBJ) $(NAME)2.o
 	@echo "\n\n"
 
 $(NAME)3: $(HELPOBJ) $(NAME)3.o
+	$(CXX) $(CXXFLAGS) $^ -o $@.out
+	@echo "\n\n#####  $@  #########"
+	@./$@.out
+	@echo "\n\n"
+
+$(NAME)4: $(HELPOBJ) $(NAME)4.o
 	$(CXX) $(CXXFLAGS) $^ -o $@.out
 	@echo "\n\n#####  $@  #########"
 	@./$@.out This is a call to all my past resignations
