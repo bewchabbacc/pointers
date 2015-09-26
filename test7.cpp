@@ -18,4 +18,6 @@ int main()
   ptr = data;
   for (int i = 0; i < 7; ++i)
     cout << each(ptr) << " ";
+  delete ptr;
 }
+
