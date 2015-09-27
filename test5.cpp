@@ -29,8 +29,7 @@ public:
 
 ostream& operator<< (ostream& o, const IntArrWrapper& a)
 {
-  o << "@: " << &a;
-  o << "\ncap var at: " << &(a.cap);
+  o << "\nCap var at: " << &(a.cap);
   o <<"\ndata at " << &(a.data) << " its pointer is " << a.data << endl;
   return o;
 }
@@ -45,6 +44,8 @@ int main() {
   print_info(arr2);
   cout << "*ARR2:\n";
   print_info(*arr2);
+  arr[1] = 42;
+  print_info(arr[1]);
 
   delete arr2;
   return 0;

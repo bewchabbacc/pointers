@@ -1,17 +1,5 @@
 #include "helpers.h"
 
-void f_value(int x)
-{
-  cout << "x was sent by value->";
-  print_info(x);
-}
-
-void f_reference(const int& x)
-{
-  cout << "x was sent by reference->";
-  print_info(x);
-}
-
 void f_ptr(int *x)
 {
   cout << "x is a pointer sent by value->";
@@ -36,7 +24,7 @@ int main()
 
   *pi4 = 10; // Congrats! you just got a segfault! I hope you're proud
 #endif
-
+  
   cout << "i->";
   print_info(i);
   cout << "pi->";
@@ -51,12 +39,10 @@ int main()
   cout << "*pi->";
   print_info(*pi);
 
-  cout << "Let's see our other pointers..." << endl;
+  cout << "\nLet's see our other pointers..." << endl;
   print_info(pi2);
   print_info(pi3);
-  
-  f_value(i);
-  f_reference(i);
+
   f_ptr(pi);
   f_ptr_ref(pi);
   return 0;
