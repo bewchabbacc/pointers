@@ -10,40 +10,10 @@ NAME = test
 
 all: $(NAME)1 $(NAME)2 $(NAME)3 $(NAME)4 $(NAME)5 $(NAME)6
 
-$(NAME)1: $(NAME)1.o
+$(NAME)%: $(NAME)%.o
 	$(CXX) $(CXXFLAGS) $^ -o $@.out
 	@echo "\n#####  $@  #########"
 	@./$@.out
-	@echo "\n\n"
-
-$(NAME)2: $(NAME)2.o
-	$(CXX) $(CXXFLAGS) $^ -o $@.out
-	@echo "\n\n#####  $@  #########"
-	@./$@.out
-	@echo "\n\n"
-
-$(NAME)3: $(NAME)3.o
-	$(CXX) $(CXXFLAGS) $^ -o $@.out
-	@echo "\n\n#####  $@  #########"
-	@./$@.out
-	@echo "\n\n"
-
-$(NAME)4: $(NAME)4.o
-	$(CXX) $(CXXFLAGS) $^ -o $@.out
-	@echo "\n\n#####  $@  #########"
-	@./$@.out
-	@echo "\n\n"
-
-$(NAME)5: $(NAME)5.o
-	$(CXX) $(CXXFLAGS) $^ -o $@.out
-	@echo "\n\n#####  $@  #########"
-	@./$@.out
-	@echo "\n\n"
-
-$(NAME)6: $(NAME)6.o
-	$(CXX) $(CXXFLAGS) $^ -o $@.out
-	@echo "\n\n#####  $@  #########"
-	@./$@.out This is a call to all my past resignations
 	@echo "\n\n"
 
 clean:
