@@ -1,3 +1,8 @@
+// This code is purposely full of bugs!
+// It is an example of many things you should NOT do
+// Before compiling it, ask yourself how much you hate your computer
+// This is the code equivalent of violating the Geneva conventions
+
 #include "helpers.h"
 
 // Supposedly grabs the item pointer by arr, and
