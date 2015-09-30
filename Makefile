@@ -10,16 +10,10 @@ NAME = test
 
 all: $(NAME)1 $(NAME)2 $(NAME)3 $(NAME)4 $(NAME)5 $(NAME)6
 
-$(NAME)6: $(NAME)6.o
-	$(CXX) $(CXXFLAGS) $^ -o $@.out
-	@echo "\n#####  $@  #########"
-	@./$@.out this is a call to all my past resignations
-	@echo "\n\n"
-
 $(NAME)%: $(NAME)%.o
 	$(CXX) $(CXXFLAGS) $^ -o $@.out
 	@echo "\n#####  $@  #########"
-	@./$@.out
+	@./$@.out this is a call to all my past resignations
 	@echo "\n\n"
 
 clean:
